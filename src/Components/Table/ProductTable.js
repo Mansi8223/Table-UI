@@ -9,13 +9,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import AddIcon from '@mui/icons-material/Add';
 import Rate from './Rate';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function ProductTable() {
-//   const[products,setProducts]=useState("")
-//   useEffect(()=>{
-//     setProducts(data.products)
-    console.log(data.products)
-//   },[])
+  const[products,setProducts]=useState("")
+  useEffect(()=>{
+    setProducts(data.products)
+    // console.log(data.products)
+  },[])
   return (
     <div className="table-wrapper">
         <div className='products-header'>
@@ -41,7 +43,7 @@ function ProductTable() {
                 </TableRow>
             </TableHead>
             <TableBody>
-            {data.products && data.products.map((item,index)=>(
+            {products && products.map((item,index)=>(
                 <TableRow key={index+1} className={index%2===0?'table-body-even':'table-body'}>
                     <TableCell component="th" scope="row">{item.title}</TableCell>
                     <TableCell align="left">{item.description}</TableCell>
